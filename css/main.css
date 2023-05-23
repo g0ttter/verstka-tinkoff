@@ -88,27 +88,47 @@ legend {
   display: block;
 }
 
+.tablet, .mobie {
+  display: none;
+}
+
+@media only screen and (width < 1000px) {
+  .desktop {
+    display: none;
+  }
+  .tablet {
+    display: block;
+  }
+}
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 17px;
   line-height: 28px;
+  color: #333333;
+}
+@media only screen and (width < 1000px) {
+  body {
+    font-size: 15px;
+    line-height: 24px;
+  }
 }
 
 a {
-  color: #336FEE;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+  color: #597DB3;
+  border-bottom: 1px solid rgba(51, 111, 238, 0.2);
+  display: inline-block;
+  line-height: 1;
 }
 a:hover {
-  opacity: 100%;
+  cursor: pointer;
 }
 
 .case {
   width: 784px;
   height: 2448px;
-  border: 1px solid #DCE2E8;
+  outline: 1px solid #DCE2E8;
   margin: 80px 200px;
   padding: 48px;
   display: -webkit-box;
@@ -118,6 +138,12 @@ a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+@media only screen and (width < 1000px) {
+  .case {
+    width: 608px;
+    margin: 80px;
+  }
 }
 
 .case__header {
@@ -162,12 +188,24 @@ a:hover {
   -webkit-font-feature-settings: "liga" off;
           font-feature-settings: "liga" off;
 }
+@media only screen and (width < 1000px) {
+  .case__title {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
 
 .case__circle {
   height: 80px;
   width: 80px;
   border-radius: 1000px;
   background-color: #F1F3F5;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+.case__circle:hover {
+  opacity: 0%;
+  cursor: pointer;
 }
 
 .case__category {
@@ -188,13 +226,14 @@ a:hover {
   -webkit-column-gap: 12px;
      -moz-column-gap: 12px;
           column-gap: 12px;
+  margin-top: 8px;
 }
 
 .case__tags {
   background-color: #F1F3F5;
 }
 
-.case__content, .case__block {
+.case__content, .case__block, .case__block-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -204,10 +243,115 @@ a:hover {
           flex-direction: column;
 }
 
-.case__block {
-  gap: 42px;
-}
-
 .case__content {
   margin: 48px 0px 30px;
+  gap: 48px;
+}
+
+.case__block, .case__block-text {
+  gap: 16px;
+}
+@media only screen and (width < 1000px) {
+  .case__block, .case__block-text {
+    gap: 12px;
+  }
+}
+
+.case__block-title {
+  font-size: 28px;
+  line-height: 32px;
+  -webkit-font-feature-settings: "liga" off;
+          font-feature-settings: "liga" off;
+  margin-right: -20px;
+}
+@media only screen and (width < 1000px) {
+  .case__block-title {
+    font-size: 21px;
+  }
+}
+
+.case__block-text_24px-gap {
+  gap: 24px;
+}
+
+.case__author {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 288px;
+  height: 64px;
+  gap: 16px;
+}
+
+.case__author-background {
+  width: 64px;
+  height: 64px;
+  border-radius: 100px;
+  background-color: #F1F3F5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.case__author-photo {
+  width: 36px;
+  height: 36px;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.case__author-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+.case__author-name {
+  font-weight: 700;
+}
+
+.case__author-description {
+  color: #808C9E;
+}
+
+.case__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 50px;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+.case__footer-editor {
+  text-align: center;
+  color: #808C9E;
+}
+
+.case__footer-link {
+  text-align: right;
+}
+
+.case__block_margin-top {
+  margin-top: 28px;
+}
+@media only screen and (width < 1000px) {
+  .case__block_margin-top {
+    margin-top: 0px;
+  }
 }

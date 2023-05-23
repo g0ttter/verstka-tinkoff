@@ -2,30 +2,56 @@
 @import "vars";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+
+.tablet, .mobie {
+  display: none
+}
+
+@media only screen and (width < 1000px) {
+  .desktop {
+     display: none;
+  }
+  .tablet {
+    display: block;
+  }
+}
+
+
+
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 17px;
   line-height: 28px;
+  color: $black-text;
+  @media only screen and (width < 1000px) {
+    font-size: 15px;
+    line-height: 24px;
+  }
 }
 
 a {
   color: $blue-links;
-  transition: all 0.2s ease-in;
-
+  border-bottom: 1px solid $blue-links-secondary;
+  display: inline-block;
+  line-height: 1;
   &:hover {
-    opacity: 100%;
+    cursor: pointer;
   }
 }
 
 .case {
   width: 784px;
   height: 2448px;
-  border: 1px solid $gray-border;
+  outline: 1px solid $gray-border;
   margin: 80px 200px;
   padding: 48px;
   @include flexColumn;
+  @media only screen and (width < 1000px) {
+    width: 608px;
+    margin: 80px;
+  }
 }
 
 .case__header {
@@ -58,6 +84,10 @@ a {
   font-size: 36px;
   line-height: 44px;
   font-feature-settings: 'liga' off;
+  @media only screen and (width < 1000px) {
+    font-size: 24px;
+    line-height: 28px;
+  }
 }
 
 .case__circle {
@@ -65,6 +95,11 @@ a {
   width: 80px;
   border-radius: 1000px;
   background-color: $gray-background;
+  transition: all 0.15s ease-in-out;
+  &:hover {
+    opacity: 0%;
+    cursor: pointer;
+  }
 }
 
 .case__category {
@@ -75,18 +110,102 @@ a {
 .case__category-tags {
   display: flex;
   column-gap: 12px;
+  margin-top: 8px;
 }
 
 .case__tags {
   background-color: $gray-background;
 }
 
-.case__content, .case__block {
+.case__content, .case__block, .case__block-text {
   @include flexColumn;
 }
-.case__block {
-  gap: 42px;
-}
+
 .case__content {
   margin: 48px 0px 30px;
+  gap: 48px;
+}
+
+.case__block, .case__block-text {
+  gap: 16px;
+  @media only screen and (width < 1000px) {
+    gap: 12px;
+  }
+}
+
+.case__block-title {
+  font-size: 28px;
+  line-height: 32px;
+  font-feature-settings: 'liga' off;
+  margin-right: -20px;
+  @media only screen and (width < 1000px) {
+    font-size: 21px;
+  }
+}
+
+.case__block-text_24px-gap {
+  gap: 24px;
+}
+
+.case__author {
+  display: flex;
+  width: 288px;
+  height: 64px;
+  gap: 16px;
+}
+
+.case__author-background {
+  width: 64px;
+  height: 64px;
+  border-radius: 100px;
+  background-color: $gray-background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case__author-photo {
+  width: 36px;
+  height: 36px;
+  align-self: center;
+}
+
+.case__author-text {
+  @include flexColumn;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+.case__author-name {
+  font-weight: 700;
+}
+
+.case__author-description {
+  color: $gray-text;
+}
+
+
+
+.case__footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+.case__footer-editor {
+  text-align: center;
+  color: $gray-text;
+}
+
+.case__footer-link {
+  text-align: right;
+}
+
+.case__block_margin-top {
+  margin-top: 28px;
+  @media only screen and (width < 1000px) {
+    margin-top: 0px;
+  }
 }

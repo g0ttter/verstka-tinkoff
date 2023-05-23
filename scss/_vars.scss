@@ -6,8 +6,8 @@ $gray-background: #F1F3F5;
 $yellow: #FFDD2D;
 $black-title: #111111;
 $black-text: #333333;
-$blue-links: #336FEE;
-$blue-links-secondary: #597DB3;
+$blue-links: #597DB3;
+$blue-links-secondary: rgba(51, 111, 238, 0.2);
 
 @mixin flexColumn {
   display: flex;
