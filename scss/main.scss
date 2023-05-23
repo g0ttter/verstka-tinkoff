@@ -6,21 +6,26 @@
   src: url("fonts/tinkoffsans.otf") format("opentype");
 }
 
-.tablet, .mobie {
-  display: none
+@media only screen and (width > 1000px) {
+  .tablet, .mobile {
+    display: none
+  }
+  .desktop {
+    display: inline;
+  }
 }
 
 @media only screen and (500px < width < 1000px) {
-  .desktop {
-     display: none;
+  .desktop, .mobile {
+    display: none;
   }
   .tablet {
-    display: contents;
+    display: inline;
   }
 }
 
 @media only screen and (width < 500px) {
-  .desktop {
+  .desktop, .tablet {
     display: none;
  }
   .mobile {
@@ -113,7 +118,7 @@ a {
   gap: 10px;
   margin-bottom: 12px;
   @media only screen and (width < 500px) {
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 }
 
@@ -137,8 +142,13 @@ a {
   background-color: $gray-background;
   transition: all 0.15s ease-in-out;
   &:hover {
-    opacity: 0%;
-    cursor: pointer;
+      @media (hover: hover) {
+      opacity: 0%;
+      cursor: pointer;
+    }
+  }
+  @media only screen and (width < 500px) {
+  margin-left: 3px;
   }
 }
 
@@ -171,7 +181,7 @@ a {
   gap: 48px;
   @media only screen and (width < 500px) {
     margin-top: 40px;
-    gap: 40px;
+    gap: 36px;
   }
 }
 
@@ -181,7 +191,7 @@ a {
     gap: 12px;
   }
   @media only screen and (width < 500px) {
-    gap: 14px;
+    gap: 16px;
   }
 }
 
@@ -200,7 +210,7 @@ a {
   margin-right: -20px;
   @media only screen and (width < 500px) {
     margin-right: 24px;
-    margin-bottom: -10px;
+    margin-bottom: -12px;
   }
 }
 
@@ -216,6 +226,13 @@ a {
   width: 288px;
   height: 64px;
   gap: 16px;
+  display: flex;
+  @media only screen and (width < 500px) {
+    width: 240px;
+    height: 80px;
+    align-self: center;
+    padding-bottom: 36px;
+  }
 }
 
 .case__author-background {
@@ -226,6 +243,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: start;
 }
 
 .case__author-photo {
@@ -251,7 +269,7 @@ a {
 .case__footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 50px;
+  margin-top: 48px;
   line-height: 20px;
   font-size: 15px;
   @media only screen and (width < 500px) {
@@ -261,7 +279,6 @@ a {
     gap: 8px;
     margin-top: 36px;
     margin-bottom: 38px;
-
   }
 }
 
@@ -280,6 +297,13 @@ a {
     margin-top: 0px;
   }
   @media only screen and (width < 500px) {
-    margin-top: -28px;
+    margin-top: -24px;
+  }
+}
+
+.case__block-text_tablet-gap {
+  @media only screen and (500px < width < 1000px) {
+    gap: 16px;
+    margin-top: -2px;
   }
 }

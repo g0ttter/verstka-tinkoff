@@ -92,20 +92,24 @@ legend {
   font-family: "Tinkoff Sans";
   src: url("fonts/tinkoffsans.otf") format("opentype");
 }
-.tablet, .mobie {
-  display: none;
-}
-
-@media only screen and (500px < width < 1000px) {
+@media only screen and (width > 1000px) {
+  .tablet, .mobile {
+    display: none;
+  }
   .desktop {
+    display: inline;
+  }
+}
+@media only screen and (500px < width < 1000px) {
+  .desktop, .mobile {
     display: none;
   }
   .tablet {
-    display: contents;
+    display: inline;
   }
 }
 @media only screen and (width < 500px) {
-  .desktop {
+  .desktop, .tablet {
     display: none;
   }
   .mobile {
@@ -229,7 +233,7 @@ a:hover {
 }
 @media only screen and (width < 500px) {
   .case__shield {
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 }
 
@@ -257,9 +261,16 @@ a:hover {
   -webkit-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
 }
-.case__circle:hover {
-  opacity: 0%;
-  cursor: pointer;
+@media (hover: hover) {
+  .case__circle:hover {
+    opacity: 0%;
+    cursor: pointer;
+  }
+}
+@media only screen and (width < 500px) {
+  .case__circle {
+    margin-left: 3px;
+  }
 }
 
 .case__category {
@@ -316,7 +327,7 @@ a:hover {
 @media only screen and (width < 500px) {
   .case__content {
     margin-top: 40px;
-    gap: 40px;
+    gap: 36px;
   }
 }
 
@@ -330,7 +341,7 @@ a:hover {
 }
 @media only screen and (width < 500px) {
   .case__block, .case__block-text {
-    gap: 14px;
+    gap: 16px;
   }
 }
 
@@ -353,7 +364,7 @@ a:hover {
 @media only screen and (width < 500px) {
   .case__block-title_margins {
     margin-right: 24px;
-    margin-bottom: -10px;
+    margin-bottom: -12px;
   }
 }
 
@@ -373,6 +384,16 @@ a:hover {
   width: 288px;
   height: 64px;
   gap: 16px;
+  display: flex;
+}
+@media only screen and (width < 500px) {
+  .case__author {
+    width: 240px;
+    height: 80px;
+    -ms-flex-item-align: center;
+        align-self: center;
+    padding-bottom: 36px;
+  }
 }
 
 .case__author-background {
@@ -389,6 +410,8 @@ a:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-item-align: start;
+      align-self: start;
 }
 
 .case__author-photo {
@@ -425,7 +448,7 @@ a:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 50px;
+  margin-top: 48px;
   line-height: 20px;
   font-size: 15px;
 }
@@ -466,6 +489,13 @@ a:hover {
 }
 @media only screen and (width < 500px) {
   .case__block_margin-top {
-    margin-top: -28px;
+    margin-top: -24px;
+  }
+}
+
+@media only screen and (500px < width < 1000px) {
+  .case__block-text_tablet-gap {
+    gap: 16px;
+    margin-top: -2px;
   }
 }
