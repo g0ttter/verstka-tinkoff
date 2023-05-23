@@ -88,16 +88,33 @@ legend {
   display: block;
 }
 
+@font-face {
+  font-family: "Tinkoff Sans";
+  src: url("fonts/tinkoffsans.otf") format("opentype");
+}
 .tablet, .mobie {
   display: none;
 }
 
-@media only screen and (width < 1000px) {
+@media only screen and (500px < width < 1000px) {
   .desktop {
     display: none;
   }
   .tablet {
-    display: block;
+    display: contents;
+  }
+}
+@media only screen and (width < 500px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: inline;
+  }
+}
+@media only screen and (500px < width < 1000px) {
+  .case__block-title_tinkoffsans {
+    font-family: "Tinkoff Sans";
   }
 }
 body {
@@ -124,6 +141,11 @@ a {
 a:hover {
   cursor: pointer;
 }
+@media only screen and (width < 1000px) {
+  a {
+    line-height: 1.35;
+  }
+}
 
 .case {
   width: 784px;
@@ -142,7 +164,19 @@ a:hover {
 @media only screen and (width < 1000px) {
   .case {
     width: 608px;
+    height: 2046px;
     margin: 80px;
+  }
+}
+@media only screen and (width < 500px) {
+  .case {
+    width: 288px;
+    height: 3389px;
+    margin: 80px 16px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 24px 24px 28px;
   }
 }
 
@@ -154,6 +188,21 @@ a:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+@media only screen and (width < 1000px) {
+  .case__header {
+    margin-bottom: 14px;
+  }
+}
+@media only screen and (width < 500px) {
+  .case__header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
 }
 
 .case__header-left {
@@ -177,6 +226,11 @@ a:hover {
   line-height: 20px;
   gap: 10px;
   margin-bottom: 12px;
+}
+@media only screen and (width < 500px) {
+  .case__shield {
+    margin-bottom: 18px;
+  }
 }
 
 .case__title {
@@ -228,6 +282,18 @@ a:hover {
           column-gap: 12px;
   margin-top: 8px;
 }
+@media only screen and (width < 500px) {
+  .case__category-tags {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 12px;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+}
 
 .case__tags {
   background-color: #F1F3F5;
@@ -247,6 +313,12 @@ a:hover {
   margin: 48px 0px 30px;
   gap: 48px;
 }
+@media only screen and (width < 500px) {
+  .case__content {
+    margin-top: 40px;
+    gap: 40px;
+  }
+}
 
 .case__block, .case__block-text {
   gap: 16px;
@@ -256,22 +328,42 @@ a:hover {
     gap: 12px;
   }
 }
+@media only screen and (width < 500px) {
+  .case__block, .case__block-text {
+    gap: 14px;
+  }
+}
 
 .case__block-title {
   font-size: 28px;
   line-height: 32px;
   -webkit-font-feature-settings: "liga" off;
           font-feature-settings: "liga" off;
-  margin-right: -20px;
 }
 @media only screen and (width < 1000px) {
   .case__block-title {
     font-size: 21px;
+    line-height: 28px;
+  }
+}
+
+.case__block-title_margins {
+  margin-right: -20px;
+}
+@media only screen and (width < 500px) {
+  .case__block-title_margins {
+    margin-right: 24px;
+    margin-bottom: -10px;
   }
 }
 
 .case__block-text_24px-gap {
   gap: 24px;
+}
+@media only screen and (width < 1000px) {
+  .case__block-text_24px-gap {
+    gap: 16px;
+  }
 }
 
 .case__author {
@@ -337,6 +429,23 @@ a:hover {
   line-height: 20px;
   font-size: 15px;
 }
+@media only screen and (width < 500px) {
+  .case__footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    gap: 8px;
+    margin-top: 36px;
+    margin-bottom: 38px;
+  }
+}
 
 .case__footer-editor {
   text-align: center;
@@ -353,5 +462,10 @@ a:hover {
 @media only screen and (width < 1000px) {
   .case__block_margin-top {
     margin-top: 0px;
+  }
+}
+@media only screen and (width < 500px) {
+  .case__block_margin-top {
+    margin-top: -28px;
   }
 }

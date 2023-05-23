@@ -1,21 +1,38 @@
 @import "reset";
 @import "vars";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
+@font-face {
+  font-family: 'Tinkoff Sans';
+  src: url("fonts/tinkoffsans.otf") format("opentype");
+}
 
 .tablet, .mobie {
   display: none
 }
 
-@media only screen and (width < 1000px) {
+@media only screen and (500px < width < 1000px) {
   .desktop {
      display: none;
   }
   .tablet {
-    display: block;
+    display: contents;
   }
 }
 
+@media only screen and (width < 500px) {
+  .desktop {
+    display: none;
+ }
+  .mobile {
+    display: inline;
+  }
+}
+
+@media only screen and (500px < width < 1000px ) {
+  .case__block-title_tinkoffsans {
+    font-family: 'Tinkoff Sans';
+  }
+}
 
 
 body {
@@ -39,6 +56,9 @@ a {
   &:hover {
     cursor: pointer;
   }
+  @media only screen and (width < 1000px) {
+    line-height: 1.35;
+  }
 }
 
 .case {
@@ -50,14 +70,31 @@ a {
   @include flexColumn;
   @media only screen and (width < 1000px) {
     width: 608px;
+    height: 2046px;
     margin: 80px;
   }
+  @media only screen and (width < 500px) {
+    width: 288px;
+    height: 3389px;
+    margin: 80px 16px;
+    display: flex;
+    padding: 24px 24px 28px;
+    }
 }
+
 
 .case__header {
   display: flex;
   margin-bottom: 40px;
   justify-content: space-between;
+  @media only screen and (width < 1000px) {
+    margin-bottom: 14px;
+  }
+  @media only screen and (width < 500px) {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
 }
 
 .case__header-left {
@@ -75,6 +112,9 @@ a {
   line-height: 20px;
   gap: 10px;
   margin-bottom: 12px;
+  @media only screen and (width < 500px) {
+    margin-bottom: 18px;
+  }
 }
 
 .case__title {
@@ -111,6 +151,11 @@ a {
   display: flex;
   column-gap: 12px;
   margin-top: 8px;
+  @media only screen and (width < 500px) {
+    flex-direction: column;
+    row-gap: 12px;
+    align-items: baseline;
+  }
 }
 
 .case__tags {
@@ -124,6 +169,10 @@ a {
 .case__content {
   margin: 48px 0px 30px;
   gap: 48px;
+  @media only screen and (width < 500px) {
+    margin-top: 40px;
+    gap: 40px;
+  }
 }
 
 .case__block, .case__block-text {
@@ -131,20 +180,35 @@ a {
   @media only screen and (width < 1000px) {
     gap: 12px;
   }
+  @media only screen and (width < 500px) {
+    gap: 14px;
+  }
 }
 
 .case__block-title {
   font-size: 28px;
   line-height: 32px;
   font-feature-settings: 'liga' off;
-  margin-right: -20px;
   @media only screen and (width < 1000px) {
     font-size: 21px;
+    line-height: 28px;
+  }
+  
+}
+
+.case__block-title_margins {
+  margin-right: -20px;
+  @media only screen and (width < 500px) {
+    margin-right: 24px;
+    margin-bottom: -10px;
   }
 }
 
 .case__block-text_24px-gap {
   gap: 24px;
+  @media only screen and (width < 1000px) {
+    gap: 16px;
+  }
 }
 
 .case__author {
@@ -184,14 +248,21 @@ a {
   color: $gray-text;
 }
 
-
-
 .case__footer {
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
   line-height: 20px;
   font-size: 15px;
+  @media only screen and (width < 500px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 8px;
+    margin-top: 36px;
+    margin-bottom: 38px;
+
+  }
 }
 
 .case__footer-editor {
@@ -207,5 +278,8 @@ a {
   margin-top: 28px;
   @media only screen and (width < 1000px) {
     margin-top: 0px;
+  }
+  @media only screen and (width < 500px) {
+    margin-top: -28px;
   }
 }
