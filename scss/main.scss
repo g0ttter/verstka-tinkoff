@@ -62,7 +62,18 @@ a {
     cursor: pointer;
   }
   @media only screen and (width < 1000px) {
-    line-height: 1.35;
+    line-height: 1.37;
+    position: relative;
+  }
+}
+
+.case__kassa-link::after {
+  content: "са";
+  display: inline-block;
+  line-height: 1;
+  @media only screen and (width < 1000px) {
+    line-height: 1.37;
+    position: absolute;
   }
 }
 
@@ -161,6 +172,7 @@ a {
   display: flex;
   column-gap: 12px;
   margin-top: 8px;
+  vertical-align: baseline;
   @media only screen and (width < 500px) {
     flex-direction: column;
     row-gap: 12px;
@@ -226,36 +238,42 @@ a {
   width: 288px;
   height: 64px;
   gap: 16px;
-  display: flex;
+  align-items: center;
+  margin-top: -2px;
   @media only screen and (width < 500px) {
     width: 240px;
     height: 80px;
     align-self: center;
     padding-bottom: 36px;
+    margin-top: -2px;
+    align-items: flex-start;
   }
 }
 
 .case__author-background {
   width: 64px;
   height: 64px;
-  border-radius: 100px;
+  border-radius: 64px;
   background-color: $gray-background;
   display: flex;
-  align-items: center;
   justify-content: center;
-  align-self: start;
+  align-items: center;
 }
 
 .case__author-photo {
   width: 36px;
   height: 36px;
   align-self: center;
+  color: $gray-fill;
 }
 
 .case__author-text {
   @include flexColumn;
   line-height: 20px;
   font-size: 15px;
+  @media only screen and (width < 500px) {
+    vertical-align:bottom;
+  }
 }
 
 .case__author-name {
@@ -289,10 +307,16 @@ a {
 
 .case__footer-link {
   text-align: right;
+  margin-right: -2px;
+  margin-top: 2px;
+  @media only screen and (500px < width < 1000px) {
+    margin-top: 0px;
+  }
 }
 
 .case__block_margin-top {
-  margin-top: 28px;
+  vertical-align: baseline;
+  margin-top: 29px;
   @media only screen and (width < 1000px) {
     margin-top: 0px;
   }
@@ -305,5 +329,36 @@ a {
   @media only screen and (500px < width < 1000px) {
     gap: 16px;
     margin-top: -2px;
+  }
+}
+
+.case__arrow {
+  color: #111111;
+  border-bottom: 4px solid transparent;
+  vertical-align: middle;
+  border-left: 2px solid transparent;
+  @media only screen and (500px < width < 1000px) {
+    position: relative;
+    left: -1%;
+    border-top: 2px solid transparent;
+  }
+}
+
+.case__kassa-link {
+  @media only screen and (500px < width < 1000px) {
+    position: relative;
+    left: -0.8%;
+  }
+}
+
+@media only screen and (width > 1000px) {
+  .case__block-title_minus-margin {
+    margin-bottom: -1px;
+  }
+}
+
+@media only screen and (width < 500px) {
+  .case__block-title_minus-margin {
+    margin-bottom: -1px;
   }
 }
